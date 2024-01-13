@@ -1,0 +1,83 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.layout {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  gap: 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "menu"
+    "main"
+}
+
+.layout > .menu {
+  grid-area: menu;
+  border-bottom: 0.2rem solid var(--bg2);
+}
+
+.layout > .main {
+  grid-area: main;
+
+  display: grid;
+  width: 100vw;
+  gap: 0px;
+  grid-template-columns: auto 1fr 20vw;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "tools view current"
+    "tools view layers";
+  border: none;
+}
+
+.layout > .main > .tools {
+  grid-area: tools;
+  border: none;
+}
+
+.layout > .main > .view {
+  grid-area: view;
+
+  border-left: 0.2rem solid var(--bg2);
+  border-right: 0.2rem solid var(--bg2);
+}
+
+.layout > .main > .current {
+  grid-area: current;
+  border-bottom: 0.2rem solid var(--bg2);
+}
+
+.layout > .main > .layers {
+  grid-area: layers;
+  border: none;
+}
+
+.surface {
+  padding: 0.4rem;
+}
+
+.menu.surface {
+  padding: 0.2rem 0.4rem;
+}
+
+.autoSpace * + *,
+.autoSpace * + p,
+.autoSpace * + h1,
+.autoSpace * + h2,
+.autoSpace * + h3,
+.autoSpace * + h4,
+.autoSpace * + h5,
+.autoSpace * + h6 {
+  margin-top: 1rem;
+}
+
+.autoSpace .radio > *,
+.autoSpace .checkbox > *,
+.autoSpace .flex > * {
+  margin-top: 0px;
+}

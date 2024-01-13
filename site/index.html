@@ -1,8 +1,115 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10, user-scalable=1"
+    />
     <title>Project Name</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/utils.css" />
   </head>
   <body>
+    <div class="layout">
+      <div class="menu surface">
+        <div class="dropdown">
+          <button class="toggle">File</button>
+          <div class="content">
+            <button>Image Setup</button>
+            <button>Save/Export</button>
+            <button>Editor Homescreen</button>
+            <button id="menuFileContentSettings">Editor Settings</button>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="toggle">Edit</button>
+          <div class="content">
+            <button>Undo</button>
+            <button>Redo</button>
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="tools surface">tools list</div>
+        <div class="view surface">image preview</div>
+        <div class="current surface">current tool options</div>
+        <div class="layers surface">layers</div>
+      </div>
+    </div>
+    <div id="settings" class="modal hide autoSpace">
+      <div class="content">
+        <p class="h3">Editor Settings</p>
+        <p class="h4">Appearance</p>
+        <div class="box">
+          <p>Theme</p>
+          <div class="radio">
+            <input type="radio" id="settingsThemedefault" name="settingsTheme" />
+            <label for="settingsThemedefault">Default</label>
+          </div>
+          <div class="radio">
+            <input type="radio" id="settingsThemepurpleish" name="settingsTheme" />
+            <label for="settingsThemepurpleish">Purpleish</label>
+          </div>
+          <div class="radio">
+            <input type="radio" id="settingsThemelight" name="settingsTheme" />
+            <label for="settingsThemelight">Light</label>
+          </div>
+        </div>
+        <p class="h4">AI</p>
+        <div class="box">
+          <p><a href="https://platform.stability.ai/" target="_blank" rel="noopener noreferrer">Stability AI</a> API key (Stable Diffusion)</p>
+          <div class="flex">
+            <input type="text" id="settingsStabilityaiKey" placeholder="API key" />
+            <button id="settingsStabilityaiReset">Reset</button>
+          </div>
+          <p><a href="https://platform.openai.com" target="_blank" rel="noopener noreferrer">OpenAI</a> API key (DALL-E)</p>
+          <div class="flex">
+            <input type="text" id="settingsOpenaiKey" placeholder="API key" />
+            <button id="settingsOpenaiReset">Reset</button>
+          </div>
+        </div>
+        <button id="settingsClose">Done</button>
+      </div>
+    </div>
+    <script src="./js/ui.js"></script>
+    <script>
+      document.getElementById("menuFileContentSettings").addEventListener(
+        "click",
+        function () {
+          document.getElementById("settings").classList.remove("hide");
+        }
+      )
+      document.getElementById("settingsClose").addEventListener(
+        "click",
+        function () {
+          document.getElementById("settings").classList.add("hide");
+        }
+      )
+      
+      document.getElementById("settingsThemedefault").addEventListener(
+        "change",
+        function () {
+          ui.setTheme("default");
+        }
+      );
+      document.getElementById("settingsThemepurpleish").addEventListener(
+        "change",
+        function () {
+          ui.setTheme("purpleish");
+        }
+      );
+      document.getElementById("settingsThemelight").addEventListener(
+        "change",
+        function () {
+          ui.setTheme("light");
+        }
+      );
+
+      document.getElementById("settingsTheme" + ui.getTheme()).checked = true;
+    </script>
   </body>
 </html>
