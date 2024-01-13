@@ -17,6 +17,17 @@ var ui = {
     } else {
       return "default";
     }    
+  },
+  layers: {
+    refresh: function () {
+      var layersList = document.getElementById("layersList");
+      layersList.innerHTML = "";
+      for (var i2 = 0; i2 < layers.layers.length; i2++) {
+        var layersListElement = document.createElement("div");
+        layersListElement.innerText = i2;
+        layersList.appendChild(layersListElement);
+      }
+    }
   }
 }
 

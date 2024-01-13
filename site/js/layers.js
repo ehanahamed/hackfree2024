@@ -12,6 +12,13 @@ var layers = {
       }
     );
     canvas.draw();
+    ui.layers.refresh();
     return (length - 1);
   },
+  remove: function (layer) {
+    if (layer < layers.layers.length) {
+      layers.layers.splice(layer,1);
+    }
+    ui.layers.refresh();
+  }
 };

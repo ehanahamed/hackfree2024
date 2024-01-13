@@ -37,7 +37,7 @@
         <div class="tools surface">
           <div class="flex col">
             <button onclick="drawA()">a</button>
-            <button onclick="drawB()">b</button>
+            <button onclick="drawB(0)">b</button>
             <button onclick="move()">move</button>
           </div>
         </div>
@@ -46,7 +46,10 @@
           </canvas>
         </div>
         <div class="current surface">current tool options</div>
-        <div class="layers surface">layers</div>
+        <div class="layers surface">
+          <div id="layersList" class="flex col">
+          </div>
+        </div>
       </div>
     </div>
     <div id="settings" class="modal hide autoSpace">
