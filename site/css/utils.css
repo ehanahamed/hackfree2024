@@ -1,0 +1,25 @@
+.hide {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.flex.row {
+  flex-direction: row;
+}
+
+.flex.col {
+  flex-direction: column;
+}
+
+.flex.noWrap {
+  flex-wrap: nowrap;
+}
