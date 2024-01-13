@@ -34,7 +34,13 @@
         </div>
       </div>
       <div class="main">
-        <div class="tools surface">tools list</div>
+        <div class="tools surface">
+          <div class="flex col">
+            <button onclick="drawA()">a</button>
+            <button onclick="drawB()">b</button>
+            <button onclick="move()">move</button>
+          </div>
+        </div>
         <div class="view surface">
           <canvas  id="outerCanvas" width="400" height="300">
           </canvas>
@@ -114,11 +120,8 @@
 
       document.getElementById("settingsTheme" + ui.getTheme()).checked = true;
     </script>
-    <script>
-      var outerCanvas = document.getElementById("outerCanvas");
-      var outerCtx =  outerCanvas.getContext("2d");
-      outerCtx.fillStyle = "#7a52cc";
-      outerCtx.fillRect(10,10,50,50);
-    </script>
+    <script src="./js/canvas.js"></script>
+    <script src="./js/layers.js"></script>
+    <script src="./js/tools.js"></script>
   </body>
 </html>
