@@ -226,7 +226,7 @@
                   ui.layers.refresh();
                   document.getElementById("addLayerAiModal").classList.add("hide");
                 }
-                image.src = `data:image/png;base64,${result.artifacts[0]}`;
+                image.src = `data:image/png;base64,${result.artifacts[0].base64}`;
               })
             } else {
               console.error(`Non-200 response: ${response.text()}`);
