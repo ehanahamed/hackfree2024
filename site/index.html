@@ -212,21 +212,22 @@
             }
           ).then(function (response) {
             if (response.ok) {
-              var result = response.json();
-              var newLayerIndex = layers.add();
-              var image = new Image();
-              image.onload = function() {
-                newLayerIndex = layers.add(image.width, image.height);
-                layers.layers[newLayerIndex].canvas.getContext("2d").drawImage(
-                  image,
-                  0,
-                  0
-                );
-                canvas.draw();
-                ui.layers.refresh();
-                document.getElementById("addLayerAiModal").classList.add("hide");
-              }
-              img.src = `data:image/png;base64,${result.artifacts[0]}`;
+              response.json().then(function (result) {
+                var newLayerIndex = layers.add();
+                var image = new Image();
+                image.onload = function() {
+                  newLayerIndex = layers.add(image.width, image.height);
+                  layers.layers[newLayerIndex].canvas.getContext("2d").drawImage(
+                    image,
+                    0,
+                    0
+                  );
+                  canvas.draw();
+                  ui.layers.refresh();
+                  document.getElementById("addLayerAiModal").classList.add("hide");
+                }
+                image.src = `data:image/png;base64,${result.artifacts[0]}`;
+              })
             } else {
               console.error(`Non-200 response: ${response.text()}`);
             }
