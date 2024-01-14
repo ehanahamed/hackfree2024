@@ -28,9 +28,8 @@
   width: 100vw;
   gap: 0px;
   grid-template-columns: auto 1fr 20vw;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr;
   grid-template-areas:
-    "tools view current"
     "tools view layers";
   border: none;
 }
@@ -67,12 +66,12 @@
   }
 
   .layout > .main {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr auto 1fr;
     grid-template-areas:
-      "view view"
-      "tools tools"
-      "current layers"
+      "view"
+      "tools"
+      "layers"
   }
 
   .layout > .main > .view {
