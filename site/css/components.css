@@ -167,6 +167,26 @@ button:focus-visible,
   transition-duration: 0.1s; 
 }
 
+button.select,
+.button.select {
+  color: var(--fg);
+  border-color: var(--bg2);
+}
+
+button.select:hover,
+.button.select:hover,
+button.select:focus,
+.button.select:focus {
+  color: var(--primaryAlt);
+  border-color: var(--bg2);
+}
+
+button.select.selected,
+.button.select.selected {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
 .dropdown {
   position: rleative;
   display: inline-block;

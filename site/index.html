@@ -37,10 +37,10 @@
       <div class="main">
         <div class="tools surface">
           <div class="flex varDir">
-            <button><i class="nf nf-fa-mouse_pointer"></i></button>
-            <button onclick="drawA()">a</button>
-            <button onclick="drawB(0)">b</button>
-            <button onclick="move()">move</button>
+            <button id="toolSelect" class="select" onclick="tools.select()"><i class="nf nf-fa-mouse_pointer"></i></button>
+            <button id="toolMove" class="select" onclick="tools.move()"><i class="nf nf-md-cursor_move"></i></button>
+            <button class="select" onclick="drawA()">a</button>
+            <button class="select" onclick="drawB(0)">b</button>
           </div>
         </div>
         <div class="view surface">
