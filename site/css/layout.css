@@ -68,10 +68,10 @@
 
   .layout > .main {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto 1fr;
+    grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
-      "view view"
       "tools tools"
+      "view view"
       "current layers"
   }
 
@@ -79,7 +79,7 @@
     border-left: none;
     border-right: none;
     border-bottom: 0.2rem solid var(--bg2);
-    border-top: none;
+    border-top: 0.2rem solid var(--bg2);
   }
 }
 
