@@ -109,3 +109,8 @@ button.red:focus-visible,
   opacity: 0;
   overflow: hidden;
 }
+
+.fullWidth {
+  width: 100%;
+  min-width: 100%;
+}

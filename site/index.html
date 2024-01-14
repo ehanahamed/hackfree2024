@@ -77,8 +77,12 @@
     </div>
     <div id="addLayerAiModal" class="modal hide autoSpace">
       <div class="content">
-        <p class="h3">Generate an Image</p>
-        <textarea id="addLayerAiPrompt" placeholder="Prompt" value="400"></textarea>
+        <p class="h4">Generate an Image with AI</p>
+        <textarea id="addLayerAiPrompt" placeholder="Prompt" value="400" class="fullWidth"></textarea>
+        <div class="flex">
+          <button>Generate</button>
+          <button id="addLayerAiCancel">Cancel</button>
+        </div>
       </div>
     </div>
     <div id="setupModal" class="modal hide autoSpace">
@@ -174,6 +178,14 @@
           fileReader.readAsDataURL(event.target.files[0]);
         },
         false
+      )
+    </script>
+    <script>
+      document.getElementById("addLayerAiCancel").addEventListener(
+        "click",
+        function () {
+          document.getElementById("addLayerAiModal").classList.add("hide");
+        }
       )
     </script>
     <script>
