@@ -22,7 +22,7 @@ var ui = {
     refresh: function () {
       var layersList = document.getElementById("layersList");
       layersList.innerHTML = "";
-      for (var i2 = 0; i2 < layers.layers.length; i2++) {
+      for (var i2 = (layers.layers.length - 1); i2 >= 0; i2 -= 1) {
         var layersListElement = document.createElement("div");
         layersListElement.classList.add("box");
         if (layers.layers[i2].hide == false) {
