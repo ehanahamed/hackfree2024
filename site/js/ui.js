@@ -48,6 +48,8 @@ var ui = {
           `      <i class="nf nf-md-dots_vertical"></i>` + 
           `    </button>` +
           `    <div class="content">` +
+          `      <button onclick="layers.move(${i2},${i2 + 1})">Move Up</button>` +
+          `      <button onclick="layers.move(${i2},${i2 - 1})">Move Down</button>` +
           `      <button onclick="layers.show(${i2})">Show</button>` +
           `      <button onclick="layers.remove(${i2})" class="red">Delete</button>` +
           `    </div>` +
