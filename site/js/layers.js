@@ -19,6 +19,7 @@ var layers = {
     if (layer < layers.layers.length) {
       layers.layers.splice(layer,1);
     }
+    canvas.draw();
     ui.layers.refresh();
   }
 };

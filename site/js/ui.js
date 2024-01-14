@@ -24,7 +24,11 @@ var ui = {
       layersList.innerHTML = "";
       for (var i2 = 0; i2 < layers.layers.length; i2++) {
         var layersListElement = document.createElement("div");
-        layersListElement.innerText = i2;
+        layersListElement.classList.add("box");
+        layersListElement.innerHTML = `<div class="flex row">` + 
+        `<p>${i2}</p>` +
+        `<button onclick="layers.remove(${i2})">del</button>` +
+        `</div>`;
         layersList.appendChild(layersListElement);
       }
     }
