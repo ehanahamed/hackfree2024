@@ -52,7 +52,21 @@
           <div class="flex col nowrap">
             <div id="layersList" class="flex colReverse nowrap">
             </div>
-            <button onclick="layers.add()">Add Layer</button>
+            <button id="layersAddLayer">Add Layer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="addLayerModal" class="modal hide autoSpace">
+      <div class="content">
+        <div class="grid duo">
+          <div class="flex justifyCenter">
+            <i class="nf large nf-md-file_image_plus_outline"></i>
+            <button>Open/Add Image</button>
+          </div>
+          <div class="flex justifyCenter">
+            <i class="nf large nf-md-layers_plus"></i>
+            <button id="addLayerEmpty">Add Empty Layer</button>
           </div>
         </div>
       </div>
@@ -60,7 +74,6 @@
     <div id="setup" class="modal hide autoSpace">
       <div class="content">
         <p class="h3">Image Setup</p>
-
       </div>
     </div>
     <div id="settings" class="modal hide autoSpace">
@@ -99,6 +112,24 @@
       </div>
     </div>
     <script src="./js/ui.js"></script>
+    <script src="./js/canvas.js"></script>
+    <script src="./js/layers.js"></script>
+    <script src="./js/tools.js"></script>
+    <script>
+      document.getElementById("layersAddLayer").addEventListener(
+        "click",
+        function () {
+          document.getElementById("addLayerModal").classList.remove("hide");
+        }
+      )
+      document.getElementById("addLayerEmpty").addEventListener(
+        "click",
+        function () {
+          layers.add();
+          document.getElementById("addLayerModal").classList.add("hide");
+        }
+      )
+    </script>
     <script>
       document.getElementById("menuFileContentSettings").addEventListener(
         "click",
@@ -134,8 +165,5 @@
 
       document.getElementById("settingsTheme" + ui.getTheme()).checked = true;
     </script>
-    <script src="./js/canvas.js"></script>
-    <script src="./js/layers.js"></script>
-    <script src="./js/tools.js"></script>
   </body>
 </html>

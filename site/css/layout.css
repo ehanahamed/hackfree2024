@@ -106,6 +106,7 @@
 
 .autoSpace .radio > *,
 .autoSpace .checkbox > *,
-.autoSpace .flex > * {
+.autoSpace .flex > *,
+.autoSpace .grid > * {
   margin-top: 0px;
 }

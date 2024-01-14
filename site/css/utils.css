@@ -32,6 +32,11 @@
   align-items: center;
 }
 
+.flex.justifyCenter {
+  justify-items: center;
+  justify-content: center;
+}
+
 .text.red,
 .nf.red {
   color: var(--red);
@@ -69,4 +74,28 @@ button.red:focus-visible,
 .dropdown .content button.red:focus,
 .dropdown .content .button.red:focus {
   color: var(--redAlt);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid.duo {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px;
+}
+
+.grid.duo > *:first-child {
+  padding-right: 1rem;
+}
+
+.grid.duo > *:last-child {
+  padding-left: 1rem;
+  border-left: 0.2rem solid var(--bg2);
+}
+
+.nf.large {
+  font-size: 4rem;
 }
