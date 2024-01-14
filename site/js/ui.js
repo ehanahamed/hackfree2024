@@ -26,8 +26,13 @@ var ui = {
         var layersListElement = document.createElement("div");
         layersListElement.classList.add("box");
         layersListElement.innerHTML = `<div class="flex row">` + 
-        `<p>${i2}</p>` +
-        `<button onclick="layers.remove(${i2})">del</button>` +
+        `  <p>${i2}</p>` +
+        `  <div class="dropdown">` +
+        `    <button class="toggle">.</button>` +
+        `    <div class="content">` +
+        `      <button onclick="layers.remove(${i2})">delete</button>` +
+        `    </div>` +
+        `  </div>` +
         `</div>`;
         layersList.appendChild(layersListElement);
       }
