@@ -62,7 +62,8 @@
         <div class="grid duo">
           <div class="flex justifyCenter">
             <i class="nf large nf-md-file_image_plus_outline"></i>
-            <button>Open/Add Image</button>
+            <label id="addLayerImageLabel" for="addLayerImageInput" class="button">Open/Add Image</label>
+            <input type="file" id="addLayerImageInput" class="invisible" />
           </div>
           <div class="flex justifyCenter">
             <i class="nf large nf-md-layers_plus"></i>
@@ -121,13 +122,32 @@
         function () {
           document.getElementById("addLayerModal").classList.remove("hide");
         }
-      )
+      );
       document.getElementById("addLayerEmpty").addEventListener(
         "click",
         function () {
           layers.add();
           document.getElementById("addLayerModal").classList.add("hide");
         }
+      );
+      document.getElementById("addLayerImageInput").addEventListener(
+        "change",
+        function (event) {
+          var fileReader = new FileReader();
+          fileReader.onload = function (event) {
+            var image = new Image();
+            image.onload = function() {
+              newLayerIndex = layers.add();
+              layers.layers[newLayerIndex].canvas.getContext("2d").drawImage(image,0,0);
+              canvas.draw();
+              ui.layers.refresh();
+              document.getElementById("addLayerModal").classList.add("hide");
+            }
+            image.src = event.target.result;
+          }
+          fileReader.readAsDataURL(event.target.files[0]);
+        },
+        false
       )
     </script>
     <script>

@@ -99,3 +99,12 @@ button.red:focus-visible,
 .nf.large {
   font-size: 4rem;
 }
+
+.invisible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0px;
+  opacity: 0;
+  overflow: hidden;
+}
