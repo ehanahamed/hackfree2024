@@ -34,12 +34,24 @@ var layers = {
     ui.layers.refresh();
   },
   move: function (fromIndex, toIndex) {
-    /* Store value */
-    var value = layers.layers[fromIndex];
-    /* Remove from array at old index */
-    layers.layers.splice(fromIndex, 1);
-    /* Add to array at new index,
-    using value that was stored before */
-    layers.layers.splice(toIndex, 0, value);
+    if (
+      (
+        (fromIndex >= 0) && (fromIndex < layers.layers.length)
+      ) &&
+      (
+        (toIndex >= 0) && (toIndex < layers.layers.length)
+      )
+    ) {
+      /* Store value */
+      var value = layers.layers[fromIndex];
+      /* Remove from array at old index */
+      layers.layers.splice(fromIndex, 1);
+      /* Add to array at new index,
+      using value that was stored before */
+      layers.layers.splice(toIndex, 0, value);
+    }
+    /* Update canvas and ui */
+    canvas.draw();
+    ui.layers.refresh();
   }
 };
