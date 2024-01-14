@@ -20,6 +20,10 @@
   flex-direction: column;
 }
 
+.flex.colReverse {
+  flex-direction: column-reverse;
+}
+
 .flex.noWrap {
   flex-wrap: nowrap;
 }

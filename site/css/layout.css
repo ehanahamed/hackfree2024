@@ -57,6 +57,25 @@
   border: none;
 }
 
+.varDir {
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 800px) {
+  .layout > .main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas:
+      "tools tools"
+      "view view"
+      "current layers"
+  }
+
+  .varDir {
+    flex-direction: row;
+  }
+}
+
 .surface {
   padding: 0.4rem;
 }

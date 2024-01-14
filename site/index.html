@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10, user-scalable=1"
     />
-    <title>Project Name</title>
+    <title>Imagera</title>
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/colors.css" />
     <link rel="stylesheet" href="./css/components.css" />
@@ -36,7 +36,8 @@
       </div>
       <div class="main">
         <div class="tools surface">
-          <div class="flex col">
+          <div class="flex varDir">
+            <button><i class="nf nf-fa-mouse_pointer"></i></button>
             <button onclick="drawA()">a</button>
             <button onclick="drawB(0)">b</button>
             <button onclick="move()">move</button>
@@ -49,7 +50,7 @@
         <div class="current surface">current tool options</div>
         <div class="layers surface">
           <div class="flex col nowrap">
-            <div id="layersList" class="flex col nowrap">
+            <div id="layersList" class="flex colReverse nowrap">
             </div>
             <button onclick="layers.add()">Add Layer</button>
           </div>
@@ -59,7 +60,7 @@
     <div id="setup" class="modal hide autoSpace">
       <div class="content">
         <p class="h3">Image Setup</p>
-        
+
       </div>
     </div>
     <div id="settings" class="modal hide autoSpace">
