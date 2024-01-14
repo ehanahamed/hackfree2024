@@ -1,5 +1,6 @@
 var layers = {
   layers: [],
+  sessionLayerCount: 1, /* user-facing layer number */
   add: function () {
     var newCanvas = document.createElement("canvas");
     newCanvas.width = "400";
@@ -9,9 +10,11 @@ var layers = {
         canvas: newCanvas,
         x: 0,
         y: 0,
-        hide: false
+        hide: false,
+        name: "Layer " + layers.sessionLayerCount
       }
     );
+    layers.sessionLayerCount += 1;
     canvas.draw();
     ui.layers.refresh();
     return (length - 1);

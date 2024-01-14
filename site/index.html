@@ -19,7 +19,7 @@
         <div class="dropdown">
           <button class="toggle">File</button>
           <div class="content">
-            <button>Image Setup</button>
+            <button id="setupButton">Image Setup</button>
             <button>Save/Export</button>
             <button>Editor Homescreen</button>
             <button id="menuFileContentSettings">Editor Settings</button>
@@ -72,9 +72,14 @@
         </div>
       </div>
     </div>
-    <div id="setup" class="modal hide autoSpace">
+    <div id="setupModal" class="modal hide autoSpace">
       <div class="content">
         <p class="h3">Image Setup</p>
+        <div class="flex">
+          <input type="text" id="setupWidth" placeholder="Width" />
+          <input type="text" id="setupHeight" placeholder="Height" />
+        </div>
+        <button id="setupDone">Done</button>
       </div>
     </div>
     <div id="settings" class="modal hide autoSpace">
@@ -148,6 +153,24 @@
           fileReader.readAsDataURL(event.target.files[0]);
         },
         false
+      )
+    </script>
+    <script>
+      document.getElementById("setupButton").addEventListener(
+        "click",
+        function () {
+          document.getElementById("setupModal").classList.remove("hide");
+        }
+      );
+      document.getElementById("setupDone").addEventListener(
+        "click",
+        function () {
+          canvas.resize(
+            parseInt(document.getElementById("setupWidth").value),
+            parseInt(document.getElementById("setupHeight").value)
+          )
+          document.getElementById("setupModal").classList.add("hide");
+        }
       )
     </script>
     <script>

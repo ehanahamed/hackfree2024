@@ -38,7 +38,7 @@ var ui = {
           `      <button onclick="layers.remove(${i2})" class="red">Delete</button>` +
           `    </div>` +
           `  </div>` +
-          `  <p>Layer ${i2}</p>` +
+          `  <p>${layers.layers[i2].name}</p>` +
           `</div>`;
           layersList.appendChild(layersListElement);
         } else if (layers.layers[i2].hide === true) {
@@ -52,7 +52,7 @@ var ui = {
           `      <button onclick="layers.remove(${i2})" class="red">Delete</button>` +
           `    </div>` +
           `  </div>` +
-          `  <p>Layer ${i2}</p>` +
+          `  <p>${layers.layers[i2].name}</p>` +
           `  <i class="bg3 nf nf-md-eye_off"></i>` +
           `</div>`;
           layersList.appendChild(layersListElement);

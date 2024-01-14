@@ -21,6 +21,12 @@ var canvas = {
       }
     }
     outerCtx.drawImage(mainCanvas, 0, 0, 400, 300);
+  },
+  resize: function (width, height) {
+    outerCanvas.width = width;
+    outerCanvas.height = height;
+    mainCanvas.width = width;
+    mainCanvas.height = height;
   }
 }
 
