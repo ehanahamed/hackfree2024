@@ -76,13 +76,11 @@
   }
 
   .layout > .main > .view {
-    border-left: none;
-    border-right: none;
-    border-bottom: 0.2rem solid var(--bg2);
-    border-top: none;
+    border: none;
   }
 
   .layout > .main > .tools {
+    border-top: 0.2rem solid var(--bg2);
     border-bottom: 0.2rem solid var(--bg2);
   }
 }
