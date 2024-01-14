@@ -1,8 +1,10 @@
 var outerCanvas = document.getElementById("outerCanvas");
 var outerCtx =  outerCanvas.getContext("2d");
 var mainCanvas = document.createElement("canvas");
+/* initial default size */
 mainCanvas.width = "400";
 mainCanvas.height = "300";
+
 var mainCtx = mainCanvas.getContext("2d");
 
 var canvas = {
@@ -37,27 +39,4 @@ var canvas = {
     mainCanvas.width = width;
     mainCanvas.height = height;
   }
-}
-
-function drawA() {
-  newLayer = layers.add();
-  layers.layers[newLayer].canvas.getContext("2d").fillStyle = "#7a52cc";
-  layers.layers[newLayer].canvas.getContext("2d").fillRect(10,10,500,500);
-  canvas.draw();
-}
-
-var img = new Image()
-/*img.addEventListener(
-  "load",
-  function () {
-    mainCtx.drawImage(img, 0, 0);
-    draw();
-  },
-  false
-)*/
-img.src = "./image.png"
-
-function drawB(layer) {
-  layers.layers[layer].canvas.getContext("2d").drawImage(img, 0, 0);
-  canvas.draw();
 }

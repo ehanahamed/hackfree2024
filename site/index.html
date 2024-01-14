@@ -39,8 +39,6 @@
           <div class="flex varDir">
             <button id="toolSelect" class="select" onclick="tools.select()"><i class="nf nf-fa-mouse_pointer"></i></button>
             <button id="toolMove" class="select" onclick="tools.move()"><i class="nf nf-md-cursor_move"></i></button>
-            <!--<button class="select" onclick="drawA()">a</button>
-            <button class="select" onclick="drawB(0)">b</button>-->
           </div>
         </div>
         <div class="view surface">
@@ -70,14 +68,25 @@
             <button id="addLayerEmpty">Add Empty Layer</button>
           </div>
         </div>
+        <br />
+        <br />
+        <div class="flex justifyCenter">
+          <button id="addLayerModalAiButton">Generate an Image with AI</button>
+        </div>
+      </div>
+    </div>
+    <div id="addLayerAiModal" class="modal hide autoSpace">
+      <div class="content">
+        <p class="h3">Generate an Image</p>
+        <textarea id="addLayerAiPrompt" placeholder="Prompt" value="400"></textarea>
       </div>
     </div>
     <div id="setupModal" class="modal hide autoSpace">
       <div class="content">
         <p class="h3">Image Setup</p>
         <div class="flex">
-          <input type="text" id="setupWidth" placeholder="Width" />
-          <input type="text" id="setupHeight" placeholder="Height" />
+          <input type="text" id="setupWidth" placeholder="Width" value="400" />
+          <input type="text" id="setupHeight" placeholder="Height" value="300" />
         </div>
         <button id="setupDone">Done</button>
       </div>
@@ -135,6 +144,13 @@
           document.getElementById("addLayerModal").classList.add("hide");
         }
       );
+      document.getElementById("addLayerModalAiButton").addEventListener(
+        "click",
+        function () {
+          document.getElementById("addLayerModal").classList.add("hide");
+          document.getElementById("addLayerAiModal").classList.remove("hide");
+        }
+      )
       document.getElementById("addLayerImageInput").addEventListener(
         "change",
         function (event) {
