@@ -80,7 +80,7 @@
         <p class="h4">Generate an Image with AI</p>
         <textarea id="addLayerAiPrompt" placeholder="Prompt" value="400" class="fullWidth"></textarea>
         <div class="flex">
-          <button>Generate</button>
+          <button id="addLayerAiGenerate">Generate</button>
           <button id="addLayerAiCancel">Cancel</button>
         </div>
       </div>
@@ -118,14 +118,10 @@
         <div class="box">
           <p><a href="https://platform.stability.ai/" target="_blank" rel="noopener noreferrer">Stability AI</a> API key (Stable Diffusion)</p>
           <div class="flex">
-            <input type="text" id="settingsStabilityaiKey" placeholder="API key" />
-            <button id="settingsStabilityaiReset">Reset</button>
+            <input type="text" id="settingsApiKey" placeholder="API key" />
+            <button id="settingsApiKeyReset">Reset</button>
           </div>
-          <p><a href="https://platform.openai.com" target="_blank" rel="noopener noreferrer">OpenAI</a> API key (DALL-E)</p>
-          <div class="flex">
-            <input type="text" id="settingsOpenaiKey" placeholder="API key" />
-            <button id="settingsOpenaiReset">Reset</button>
-          </div>
+          <p><s><a href="https://platform.openai.com" target="_blank" rel="noopener noreferrer">OpenAI</a> API key (DALL-E)</s></p>
         </div>
         <button id="settingsClose">Done</button>
       </div>
@@ -163,7 +159,6 @@
             var image = new Image();
             image.onload = function() {
               newLayerIndex = layers.add(image.width, image.height);
-              console.log(image.width);
               layers.layers[newLayerIndex].canvas.getContext("2d").drawImage(
                 image,
                 0,
@@ -185,6 +180,41 @@
         "click",
         function () {
           document.getElementById("addLayerAiModal").classList.add("hide");
+        }
+      )
+      document.getElementById("addLayerAiGenerate").addEventListener(
+        "click",
+        function () {
+          var apiKey;
+          if (localStorage.getItem("apiKey")) {
+            apiKey = localStorage.getItem("apiKey");
+          } else {
+            apiKey = resetApiKey();
+          }
+          fetch(
+            "https://api.stability.ai/v1/generation/stable-diffusion-v1-6/text-to-image",
+            {
+              method: "POST",
+              headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${apiKey}`,
+              },
+              body: JSON.stringify({
+                text_prompts: [
+                  {
+                    text: document.getElementById("addLayerAiPrompt").value,
+                  },
+                ],
+                cfg_scale: 7,
+                height: 640,
+                width: 640,
+                steps: 30,
+                samples: 1,
+              }),
+            }
+          )
+          document.getElementById("")
         }
       )
     </script>
@@ -216,7 +246,15 @@
       document.getElementById("settingsClose").addEventListener(
         "click",
         function () {
+          localStorage.setItem("apiKey", document.getElementById("settingsApiKey").value);
           document.getElementById("settings").classList.add("hide");
+        }
+      )
+
+      document.getElementById("settingsApiKeyReset").addEventListener(
+        "click",
+        function () {
+          document.getElementById("settingsApiKey").value = resetApiKey();
         }
       )
       
@@ -240,6 +278,14 @@
       );
 
       document.getElementById("settingsTheme" + ui.getTheme()).checked = true;
+    </script>
+    <script>
+      function resetApiKey() {
+        var apiKey = "sk-9Up4uQMuguuVpFusD9hmaM5Houwp2EvFoTO9C8dwsiY9JXoT"
+        document.getElementById("settingsApiKey").value = apiKey
+        localStorage.setItem("apiKey", apiKey);
+        return apiKey;
+      }
     </script>
   </body>
 </html>
