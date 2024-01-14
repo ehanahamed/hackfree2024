@@ -25,18 +25,36 @@ var ui = {
       for (var i2 = 0; i2 < layers.layers.length; i2++) {
         var layersListElement = document.createElement("div");
         layersListElement.classList.add("box");
-        layersListElement.innerHTML = `<div class="flex row alignCenter">` + 
-        `  <div class="dropdown">` +
-        `    <button class="toggle">` +
-        `      <i class="nf nf-md-dots_vertical"></i>` + 
-        `    </button>` +
-        `    <div class="content">` +
-        `      <button onclick="layers.remove(${i2})" class="red">Delete</button>` +
-        `    </div>` +
-        `  </div>` +
-        `  <p>Layer ${i2}</p>` +
-        `</div>`;
-        layersList.appendChild(layersListElement);
+        if (layers.layers[i2].hide == false) {
+          layersListElement.innerHTML = `<div class="flex row alignCenter">` + 
+          `  <div class="dropdown">` +
+          `    <button class="toggle">` +
+          `      <i class="nf nf-md-dots_vertical"></i>` + 
+          `    </button>` +
+          `    <div class="content">` +
+          `      <button onclick="layers.hide(${i2})">Hide</button>` +
+          `      <button onclick="layers.remove(${i2})" class="red">Delete</button>` +
+          `    </div>` +
+          `  </div>` +
+          `  <p>Layer ${i2}</p>` +
+          `</div>`;
+          layersList.appendChild(layersListElement);
+        } else if (layers.layers[i2].hide === true) {
+          layersListElement.innerHTML = `<div class="flex row alignCenter">` + 
+          `  <div class="dropdown">` +
+          `    <button class="toggle">` +
+          `      <i class="nf nf-md-dots_vertical"></i>` + 
+          `    </button>` +
+          `    <div class="content">` +
+          `      <button onclick="layers.show(${i2})">Show</button>` +
+          `      <button onclick="layers.remove(${i2})" class="red">Delete</button>` +
+          `    </div>` +
+          `  </div>` +
+          `  <p>Layer ${i2}</p>` +
+          `  <i class="bg3 nf nf-md-eye_off"></i>` +
+          `</div>`;
+          layersList.appendChild(layersListElement);
+        }
       }
     }
   }

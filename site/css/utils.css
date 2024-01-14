@@ -28,8 +28,14 @@
   align-items: center;
 }
 
-.text.red {
+.text.red,
+.nf.red {
   color: var(--red);
+}
+
+.text.bg3,
+.nf.bg3 {
+  color: var(--bg3);
 }
 
 button.red,

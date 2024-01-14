@@ -10,13 +10,15 @@ var canvas = {
     outerCtx.clearRect(0, 0, outerCanvas.width, outerCanvas.height);
     mainCtx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
     for (var i = 0; i < layers.layers.length; i++) {
-      mainCtx.drawImage(
-        layers.layers[i].canvas,
-        layers.layers[i].x,
-        layers.layers[i].y,
-        400,
-        300
-      );
+      if (layers.layers[i].hide === false) {
+        mainCtx.drawImage(
+          layers.layers[i].canvas,
+          layers.layers[i].x,
+          layers.layers[i].y,
+          400,
+          300
+        );
+      }
     }
     outerCtx.drawImage(mainCanvas, 0, 0, 400, 300);
   }

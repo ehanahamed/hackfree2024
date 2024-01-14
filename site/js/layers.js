@@ -8,7 +8,8 @@ var layers = {
       {
         canvas: newCanvas,
         x: 0,
-        y: 0
+        y: 0,
+        hide: false
       }
     );
     canvas.draw();
@@ -19,6 +20,16 @@ var layers = {
     if (layer < layers.layers.length) {
       layers.layers.splice(layer,1);
     }
+    canvas.draw();
+    ui.layers.refresh();
+  },
+  hide: function (layer) {
+    layers.layers[layer].hide = true;
+    canvas.draw();
+    ui.layers.refresh();
+  },
+  show: function (layer) {
+    layers.layers[layer].hide = false;
     canvas.draw();
     ui.layers.refresh();
   }
