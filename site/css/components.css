@@ -21,6 +21,11 @@ body {
   margin: 0px;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 ::selection {
   background-color: var(--primaryAlt);
   color: var(--bg1);
