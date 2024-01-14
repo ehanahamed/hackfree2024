@@ -30,6 +30,7 @@
 
 .flex.alignCenter {
   align-items: center;
+  align-content: center;
 }
 
 .flex.justifyCenter {

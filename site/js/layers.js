@@ -1,15 +1,19 @@
 var layers = {
   layers: [],
   sessionLayerCount: 1, /* user-facing layer number */
-  add: function () {
+  add: function (width, height) {
     var newCanvas = document.createElement("canvas");
-    newCanvas.width = "400";
-    newCanvas.height = "300";
+    newCanvas.width = width || canvas.width;
+    newCanvas.height = height || canvas.height;
     var length = layers.layers.push(
       {
         canvas: newCanvas,
         x: 0,
         y: 0,
+        /* the || (two pipes) ("or" operator) uses 
+        canvas.width if width isn't defined */
+        width: width || canvas.width,
+        height: height || canvas.height,
         hide: false,
         name: "Layer " + layers.sessionLayerCount
       }

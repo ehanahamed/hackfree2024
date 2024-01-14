@@ -15,14 +15,23 @@ var canvas = {
           layers.layers[i].canvas,
           layers.layers[i].x,
           layers.layers[i].y,
-          400,
-          300
+          layers.layers[i].width,
+          layers.layers[i].height
         );
       }
     }
-    outerCtx.drawImage(mainCanvas, 0, 0, 400, 300);
+    outerCtx.drawImage(mainCanvas, 0, 0, canvas.width, canvas.height);
   },
+  /* initial default size */
+  width: 400,
+  height: 300,
   resize: function (width, height) {
+    /* These values don't effect the real canvas,
+    they're used in other calculations,
+    for example the size of a new layer in layers.js */
+    canvas.width = width,
+    canvas.height = height;
+    /* These values change the actual html canvas size */
     outerCanvas.width = width;
     outerCanvas.height = height;
     mainCanvas.width = width;

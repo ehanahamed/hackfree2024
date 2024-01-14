@@ -60,12 +60,12 @@
     <div id="addLayerModal" class="modal hide autoSpace">
       <div class="content">
         <div class="grid duo">
-          <div class="flex justifyCenter">
+          <div class="flex col alignCenter">
             <i class="nf large nf-md-file_image_plus_outline"></i>
             <label id="addLayerImageLabel" for="addLayerImageInput" class="button">Open/Add Image</label>
             <input type="file" id="addLayerImageInput" class="invisible" />
           </div>
-          <div class="flex justifyCenter">
+          <div class="flex col alignCenter">
             <i class="nf large nf-md-layers_plus"></i>
             <button id="addLayerEmpty">Add Empty Layer</button>
           </div>
@@ -142,8 +142,13 @@
           fileReader.onload = function (event) {
             var image = new Image();
             image.onload = function() {
-              newLayerIndex = layers.add();
-              layers.layers[newLayerIndex].canvas.getContext("2d").drawImage(image,0,0);
+              newLayerIndex = layers.add(image.width, image.height);
+              console.log(image.width);
+              layers.layers[newLayerIndex].canvas.getContext("2d").drawImage(
+                image,
+                0,
+                0
+              );
               canvas.draw();
               ui.layers.refresh();
               document.getElementById("addLayerModal").classList.add("hide");
