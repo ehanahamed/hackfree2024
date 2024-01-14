@@ -60,5 +60,10 @@ var layers = {
     /* Update canvas and ui */
     canvas.draw();
     ui.layers.refresh();
+  },
+  clear: function () {
+    layers.layers = [];
+    canvas.draw();
+    ui.layers.refresh();
   }
 };
