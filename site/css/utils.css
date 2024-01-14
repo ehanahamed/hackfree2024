@@ -23,3 +23,40 @@
 .flex.noWrap {
   flex-wrap: nowrap;
 }
+
+.flex.alignCenter {
+  align-items: center;
+}
+
+.text.red {
+  color: var(--red);
+}
+
+button.red,
+.button.red {
+  color: var(--red)
+}
+
+button.red:hover,
+.button.red:hover,
+button.red:focus,
+.button.red:focus {
+  color: var(--redAlt);
+}
+
+button.red:focus-visible,
+.button.red:focus-visible {
+  outline: 0.2rem solid var(--red); 
+}
+
+.dropdown .content button.red,
+.dropdown .content .button.red {
+  color: var(--red);
+}
+
+.dropdown .content button.red:hover,
+.dropdown .content .button.red:hover,
+.dropdown .content button.red:focus,
+.dropdown .content .button.red:focus {
+  color: var(--redAlt);
+}

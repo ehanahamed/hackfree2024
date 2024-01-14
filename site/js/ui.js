@@ -25,14 +25,16 @@ var ui = {
       for (var i2 = 0; i2 < layers.layers.length; i2++) {
         var layersListElement = document.createElement("div");
         layersListElement.classList.add("box");
-        layersListElement.innerHTML = `<div class="flex row">` + 
-        `  <p>${i2}</p>` +
+        layersListElement.innerHTML = `<div class="flex row alignCenter">` + 
         `  <div class="dropdown">` +
-        `    <button class="toggle">.</button>` +
+        `    <button class="toggle">` +
+        `      <i class="nf nf-md-dots_vertical"></i>` + 
+        `    </button>` +
         `    <div class="content">` +
-        `      <button onclick="layers.remove(${i2})">delete</button>` +
+        `      <button onclick="layers.remove(${i2})" class="red">Delete</button>` +
         `    </div>` +
         `  </div>` +
+        `  <p>Layer ${i2}</p>` +
         `</div>`;
         layersList.appendChild(layersListElement);
       }
