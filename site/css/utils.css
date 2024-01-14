@@ -34,7 +34,7 @@
 
 button.red,
 .button.red {
-  color: var(--red)
+  color: var(--red);
 }
 
 button.red:hover,
