@@ -38,5 +38,7 @@ var canvas = {
     outerCanvas.height = height;
     mainCanvas.width = width;
     mainCanvas.height = height;
+    /* refresh canvas */
+    canvas.draw();
   }
 }
