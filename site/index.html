@@ -286,6 +286,12 @@
         localStorage.setItem("apiKey", apiKey);
         return apiKey;
       }
+
+      if (localStorage.getItem("apiKey")) {
+        document.getElementById("settingsApiKey").value = localStorage.getItem("apiKey");
+      } else {
+        document.getElementById("settingsApiKey").value = resetApiKey();
+      }
     </script>
   </body>
 </html>
