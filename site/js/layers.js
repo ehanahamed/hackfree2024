@@ -32,5 +32,14 @@ var layers = {
     layers.layers[layer].hide = false;
     canvas.draw();
     ui.layers.refresh();
+  },
+  move: function (fromIndex, toIndex) {
+    /* Store value */
+    var value = layers.layers[fromIndex];
+    /* Remove from array at old index */
+    layers.layers.splice(fromIndex, 1);
+    /* Add to array at new index,
+    using value that was stored before */
+    layers.layers.splice(toIndex, 0, value);
   }
 };
